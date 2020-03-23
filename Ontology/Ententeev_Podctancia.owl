@@ -1,0 +1,803 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/aidar/ontologies/2019/3/untitled-ontology-7"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/aidar/ontologies/2019/3/untitled-ontology-7">
+    <Prefix name="" IRI="http://www.semanticweb.org/aidar/ontologies/2019/3/untitled-ontology-7#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Bus"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CurrentTransformer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DZL"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DZT"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Line"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PriamaryEquipment"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Protection"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Substation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TNZNP"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Transformer"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isConnectedTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isMEasuredBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isProtectedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#join"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#measure"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#protect"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Accuracy"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Function"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Length"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#TransformationRatio"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#TransformerType"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#VoltageLevel"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AT1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AT2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SHE15-EKRA"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SHE51-EKRA"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SHE71-EKRA"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TA-W1E"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TA-W1F"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TA-W1J"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TA-W2E"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TA-W2F"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TA-W2J"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#W1E"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#W1F"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#W1J"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#W2E"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#W2F"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#W2J"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#1E"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#1F"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#1J"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#2E"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#2F"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#2J"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#Bus"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#1E"/>
+            <NamedIndividual IRI="#1F"/>
+            <NamedIndividual IRI="#1J"/>
+            <NamedIndividual IRI="#2E"/>
+            <NamedIndividual IRI="#2F"/>
+            <NamedIndividual IRI="#2J"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#CurrentTransformer"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#TA-W1E"/>
+            <NamedIndividual IRI="#TA-W1F"/>
+            <NamedIndividual IRI="#TA-W1J"/>
+            <NamedIndividual IRI="#TA-W2E"/>
+            <NamedIndividual IRI="#TA-W2F"/>
+            <NamedIndividual IRI="#TA-W2J"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#DZL"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#SHE51-EKRA"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#DZT"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#SHE71-EKRA"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Line"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#W1E"/>
+            <NamedIndividual IRI="#W1F"/>
+            <NamedIndividual IRI="#W1J"/>
+            <NamedIndividual IRI="#W2E"/>
+            <NamedIndividual IRI="#W2F"/>
+            <NamedIndividual IRI="#W2J"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#TNZNP"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#SHE15-EKRA"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Transformer"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#AT1"/>
+            <NamedIndividual IRI="#AT2"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Bus"/>
+        <Class IRI="#PriamaryEquipment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CurrentTransformer"/>
+        <Class IRI="#PriamaryEquipment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DZL"/>
+        <Class IRI="#Protection"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DZT"/>
+        <Class IRI="#Protection"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Line"/>
+        <Class IRI="#PriamaryEquipment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PriamaryEquipment"/>
+        <Class IRI="#Substation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Protection"/>
+        <Class IRI="#Substation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TNZNP"/>
+        <Class IRI="#Protection"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Transformer"/>
+        <Class IRI="#PriamaryEquipment"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Bus"/>
+        <Class IRI="#CurrentTransformer"/>
+        <Class IRI="#Line"/>
+        <Class IRI="#Transformer"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#DZL"/>
+        <Class IRI="#DZT"/>
+        <Class IRI="#TNZNP"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#Transformer"/>
+        <NamedIndividual IRI="#AT1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Transformer"/>
+        <NamedIndividual IRI="#AT2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TNZNP"/>
+        <NamedIndividual IRI="#SHE15-EKRA"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DZL"/>
+        <NamedIndividual IRI="#SHE51-EKRA"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DZT"/>
+        <NamedIndividual IRI="#SHE71-EKRA"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#CurrentTransformer"/>
+        <NamedIndividual IRI="#TA-W1E"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#CurrentTransformer"/>
+        <NamedIndividual IRI="#TA-W1F"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#CurrentTransformer"/>
+        <NamedIndividual IRI="#TA-W1J"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#CurrentTransformer"/>
+        <NamedIndividual IRI="#TA-W2E"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#CurrentTransformer"/>
+        <NamedIndividual IRI="#TA-W2F"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#CurrentTransformer"/>
+        <NamedIndividual IRI="#TA-W2J"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Line"/>
+        <NamedIndividual IRI="#W1E"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Line"/>
+        <NamedIndividual IRI="#W1F"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Line"/>
+        <NamedIndividual IRI="#W1J"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Line"/>
+        <NamedIndividual IRI="#W2E"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Line"/>
+        <NamedIndividual IRI="#W2F"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Line"/>
+        <NamedIndividual IRI="#W2J"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Bus"/>
+        <NamedIndividual IRI="#1E"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Bus"/>
+        <NamedIndividual IRI="#1F"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Bus"/>
+        <NamedIndividual IRI="#1J"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Bus"/>
+        <NamedIndividual IRI="#2E"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Bus"/>
+        <NamedIndividual IRI="#2F"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Bus"/>
+        <NamedIndividual IRI="#2J"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isProtectedBy"/>
+        <NamedIndividual IRI="#AT1"/>
+        <NamedIndividual IRI="#SHE71-EKRA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isProtectedBy"/>
+        <NamedIndividual IRI="#AT2"/>
+        <NamedIndividual IRI="#SHE71-EKRA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#protect"/>
+        <NamedIndividual IRI="#SHE15-EKRA"/>
+        <NamedIndividual IRI="#W1E"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#protect"/>
+        <NamedIndividual IRI="#SHE15-EKRA"/>
+        <NamedIndividual IRI="#W1F"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#protect"/>
+        <NamedIndividual IRI="#SHE15-EKRA"/>
+        <NamedIndividual IRI="#W1J"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#protect"/>
+        <NamedIndividual IRI="#SHE15-EKRA"/>
+        <NamedIndividual IRI="#W2E"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#protect"/>
+        <NamedIndividual IRI="#SHE15-EKRA"/>
+        <NamedIndividual IRI="#W2F"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#protect"/>
+        <NamedIndividual IRI="#SHE15-EKRA"/>
+        <NamedIndividual IRI="#W2J"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#protect"/>
+        <NamedIndividual IRI="#SHE51-EKRA"/>
+        <NamedIndividual IRI="#W1E"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#protect"/>
+        <NamedIndividual IRI="#SHE51-EKRA"/>
+        <NamedIndividual IRI="#W1F"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#protect"/>
+        <NamedIndividual IRI="#SHE51-EKRA"/>
+        <NamedIndividual IRI="#W1J"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#protect"/>
+        <NamedIndividual IRI="#SHE51-EKRA"/>
+        <NamedIndividual IRI="#W2E"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#protect"/>
+        <NamedIndividual IRI="#SHE51-EKRA"/>
+        <NamedIndividual IRI="#W2F"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#protect"/>
+        <NamedIndividual IRI="#SHE51-EKRA"/>
+        <NamedIndividual IRI="#W2J"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#protect"/>
+        <NamedIndividual IRI="#SHE71-EKRA"/>
+        <NamedIndividual IRI="#AT1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#protect"/>
+        <NamedIndividual IRI="#SHE71-EKRA"/>
+        <NamedIndividual IRI="#AT2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#measure"/>
+        <NamedIndividual IRI="#TA-W1E"/>
+        <NamedIndividual IRI="#W1E"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#measure"/>
+        <NamedIndividual IRI="#TA-W1F"/>
+        <NamedIndividual IRI="#W1F"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#measure"/>
+        <NamedIndividual IRI="#TA-W1J"/>
+        <NamedIndividual IRI="#W1J"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#measure"/>
+        <NamedIndividual IRI="#TA-W2E"/>
+        <NamedIndividual IRI="#W2E"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#measure"/>
+        <NamedIndividual IRI="#TA-W2F"/>
+        <NamedIndividual IRI="#W2F"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#measure"/>
+        <NamedIndividual IRI="#TA-W2J"/>
+        <NamedIndividual IRI="#W2J"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isMEasuredBy"/>
+        <NamedIndividual IRI="#W1E"/>
+        <NamedIndividual IRI="#TA-W1E"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isProtectedBy"/>
+        <NamedIndividual IRI="#W1E"/>
+        <NamedIndividual IRI="#SHE15-EKRA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isProtectedBy"/>
+        <NamedIndividual IRI="#W1E"/>
+        <NamedIndividual IRI="#SHE51-EKRA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isMEasuredBy"/>
+        <NamedIndividual IRI="#W1F"/>
+        <NamedIndividual IRI="#TA-W1F"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isProtectedBy"/>
+        <NamedIndividual IRI="#W1F"/>
+        <NamedIndividual IRI="#SHE15-EKRA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isProtectedBy"/>
+        <NamedIndividual IRI="#W1F"/>
+        <NamedIndividual IRI="#SHE51-EKRA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isMEasuredBy"/>
+        <NamedIndividual IRI="#W1J"/>
+        <NamedIndividual IRI="#TA-W1J"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isProtectedBy"/>
+        <NamedIndividual IRI="#W1J"/>
+        <NamedIndividual IRI="#SHE15-EKRA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isProtectedBy"/>
+        <NamedIndividual IRI="#W1J"/>
+        <NamedIndividual IRI="#SHE51-EKRA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isMEasuredBy"/>
+        <NamedIndividual IRI="#W2E"/>
+        <NamedIndividual IRI="#TA-W2E"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isProtectedBy"/>
+        <NamedIndividual IRI="#W2E"/>
+        <NamedIndividual IRI="#SHE15-EKRA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isProtectedBy"/>
+        <NamedIndividual IRI="#W2E"/>
+        <NamedIndividual IRI="#SHE51-EKRA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isMEasuredBy"/>
+        <NamedIndividual IRI="#W2F"/>
+        <NamedIndividual IRI="#TA-W2F"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isProtectedBy"/>
+        <NamedIndividual IRI="#W2F"/>
+        <NamedIndividual IRI="#SHE15-EKRA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isProtectedBy"/>
+        <NamedIndividual IRI="#W2F"/>
+        <NamedIndividual IRI="#SHE51-EKRA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isMEasuredBy"/>
+        <NamedIndividual IRI="#W2J"/>
+        <NamedIndividual IRI="#TA-W2J"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isProtectedBy"/>
+        <NamedIndividual IRI="#W2J"/>
+        <NamedIndividual IRI="#SHE15-EKRA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isProtectedBy"/>
+        <NamedIndividual IRI="#W2J"/>
+        <NamedIndividual IRI="#SHE51-EKRA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#join"/>
+        <NamedIndividual IRI="#1E"/>
+        <NamedIndividual IRI="#W1E"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#join"/>
+        <NamedIndividual IRI="#1F"/>
+        <NamedIndividual IRI="#W2F"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#join"/>
+        <NamedIndividual IRI="#1J"/>
+        <NamedIndividual IRI="#W1J"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#join"/>
+        <NamedIndividual IRI="#2E"/>
+        <NamedIndividual IRI="#W2E"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#join"/>
+        <NamedIndividual IRI="#2F"/>
+        <NamedIndividual IRI="#W2F"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#join"/>
+        <NamedIndividual IRI="#2J"/>
+        <NamedIndividual IRI="#W2J"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#TransformationRatio"/>
+        <NamedIndividual IRI="#AT1"/>
+        <Literal>220/110/10</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#TransformerType"/>
+        <NamedIndividual IRI="#AT1"/>
+        <Literal>AT</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#TransformationRatio"/>
+        <NamedIndividual IRI="#AT2"/>
+        <Literal>220/110/10</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#TransformerType"/>
+        <NamedIndividual IRI="#AT2"/>
+        <Literal>AT</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Function"/>
+        <NamedIndividual IRI="#SHE15-EKRA"/>
+        <Literal>backup</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Function"/>
+        <NamedIndividual IRI="#SHE51-EKRA"/>
+        <Literal>Main</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Function"/>
+        <NamedIndividual IRI="#SHE71-EKRA"/>
+        <Literal>Main</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Accuracy"/>
+        <NamedIndividual IRI="#TA-W1E"/>
+        <Literal>10P</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Accuracy"/>
+        <NamedIndividual IRI="#TA-W1F"/>
+        <Literal>10P</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Accuracy"/>
+        <NamedIndividual IRI="#TA-W1J"/>
+        <Literal>0.2S</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Accuracy"/>
+        <NamedIndividual IRI="#TA-W1J"/>
+        <Literal>10P</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Accuracy"/>
+        <NamedIndividual IRI="#TA-W2E"/>
+        <Literal>10P</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Accuracy"/>
+        <NamedIndividual IRI="#TA-W2F"/>
+        <Literal>10P</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Accuracy"/>
+        <NamedIndividual IRI="#TA-W2J"/>
+        <Literal>10P</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Length"/>
+        <NamedIndividual IRI="#W1E"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">15</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Length"/>
+        <NamedIndividual IRI="#W1F"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">20</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Length"/>
+        <NamedIndividual IRI="#W1J"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Length"/>
+        <NamedIndividual IRI="#W2E"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">30</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Length"/>
+        <NamedIndividual IRI="#W2F"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">25</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Length"/>
+        <NamedIndividual IRI="#W2J"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">45</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#VoltageLevel"/>
+        <NamedIndividual IRI="#1E"/>
+        <Literal>E</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#VoltageLevel"/>
+        <NamedIndividual IRI="#1F"/>
+        <Literal>F</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#VoltageLevel"/>
+        <NamedIndividual IRI="#1J"/>
+        <Literal>J</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#VoltageLevel"/>
+        <NamedIndividual IRI="#2E"/>
+        <Literal>E</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#VoltageLevel"/>
+        <NamedIndividual IRI="#2F"/>
+        <Literal>F</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#VoltageLevel"/>
+        <NamedIndividual IRI="#2J"/>
+        <Literal>J</Literal>
+    </DataPropertyAssertion>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isConnectedTo"/>
+        <ObjectProperty IRI="#join"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isMEasuredBy"/>
+        <ObjectProperty IRI="#measure"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isProtectedBy"/>
+        <ObjectProperty IRI="#protect"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#isMEasuredBy"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#isProtectedBy"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#join"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#measure"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#protect"/>
+    </FunctionalObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isConnectedTo"/>
+        <Class IRI="#Line"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isMEasuredBy"/>
+        <Class IRI="#Line"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isProtectedBy"/>
+        <Class IRI="#Bus"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isProtectedBy"/>
+        <Class IRI="#Line"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isProtectedBy"/>
+        <Class IRI="#Transformer"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#join"/>
+        <Class IRI="#Bus"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#measure"/>
+        <Class IRI="#CurrentTransformer"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#protect"/>
+        <Class IRI="#Protection"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isConnectedTo"/>
+        <Class IRI="#Bus"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isMEasuredBy"/>
+        <Class IRI="#CurrentTransformer"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isProtectedBy"/>
+        <Class IRI="#Protection"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#join"/>
+        <Class IRI="#Line"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#measure"/>
+        <Class IRI="#Line"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#protect"/>
+        <Class IRI="#Bus"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#protect"/>
+        <Class IRI="#Line"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#protect"/>
+        <Class IRI="#Transformer"/>
+    </ObjectPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
