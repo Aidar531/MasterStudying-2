@@ -8,9 +8,13 @@ public class InputData {
     private String[] lineData;
     private double k1[], k2[];
 
-    private String comtrName = "/PhABC80";//ABC в конце линии
+    private String comtrName = "/KzB";//ABC в конце линии
+    private String path = "/home/aidar/Рабочий стол/MasterStudying#2/Algorythms/Data/DPB/5 sections";
+
+
+//    private String comtrName = "/PhABC80";//ABC в конце линии
 //    private String comtrName = "/PhB80"; // B  в конце линии
-    private String path = "/home/aidar/Рабочий стол/MasterStudying#2/Алгоритмы релейки/Data/End";
+//    private String path = "/home/aidar/Рабочий стол/MasterStudying#2/Алгоритмы релейки/Data/End";
 
 //    private String comtrName = "/PhAB80";//AB в конце линии
 //    private String comtrName = "/PhA80"; // A  начале линии
