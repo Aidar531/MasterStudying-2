@@ -10,6 +10,7 @@ public class FurrieFilter implements FilterFur {
     private int frequency;
     private double[] SIN;
     private double[] COS;
+
     private double Kf;
 
     private double FxA = 0;
@@ -60,12 +61,11 @@ public class FurrieFilter implements FilterFur {
     }
 
     public void calculate() {
-//        System.out.println(sv.getID());
-
         FxA = getFx(FxA,sv.getPhA(), bufferFxA,count);
         FyA = getFy(FyA,sv.getPhA(), bufferFyA,count);
         FxB = getFx(FxB,sv.getPhB(), bufferFxB,count);
         FyB = getFy(FyB,sv.getPhB(), bufferFyB,count);
+
         FxC = getFx(FxC,sv.getPhC(), bufferFxC,count);
         FyC = getFy(FyC,sv.getPhC(), bufferFyC,count);
 
@@ -76,50 +76,40 @@ public class FurrieFilter implements FilterFur {
         rms.setAngleA(getAngle(FxA,FyA));
         rms.setAngleB(getAngle(FxB,FyB));
         rms.setAngleC(getAngle(FxC,FyC));
-//        System.out.println("RMS фазы А: " + rms.getPhA());
-//        System.out.println("Угол фазы А: " + rms.getAngleA());
-//        if (rms.getID().equals("Bus1")) {
-//            Charts.addAnalogData(0, 1, rms.getPhA());
-//            Charts.addAnalogData(1, 1, rms.getPhB());
-//            Charts.addAnalogData(2, 1, rms.getPhC());
-//        }
+
         if (count++ >= numberOfPoints-1) count = 0;
-//        System.out.println(count);
 
-//        Charts.addAnalogData(1,2,rms.getPhB());
-//        Charts.addAnalogData(2,2,rms.getPhC());
-//        rms.setTime(sv.getTime());
     }
-
+    //Вывод графика
     public void showGraph(int series) {
         Charts.addAnalogData(0,series, rms.getPhA());
         Charts.addAnalogData(1,series, rms.getPhB());
         Charts.addAnalogData(2,series, rms.getPhC());
     }
 
-
+    //Выделение синусной составляющей
     private double getFx(double fx, double ph, double[] buffer , int count) {
         fx += SIN[count] * ph - buffer[count];
         buffer[count] = SIN[count] * ph;
         return fx;
     }
-
+    //Выделение косинусной составляющей
     private double getFy(double fy, double ph, double[] buffer , int count) {
         fy += COS[count] * ph - buffer[count];
         buffer[count] = COS[count] * ph;
         return fy;
     }
-
+    //Получение децйствубщего значения
     private double getRMSValue(double fx,double fy) {
             return Kf*Math.sqrt(Math.pow(fx, 2) + Math.pow(fy, 2));
         }
-
+    //Получение угла
     private double getAngle(double fx,double fy) {
         double angle=Math.toDegrees(Math.atan(fy/fx));
-        if (fx<=0) {
+        if (fx<0 && fy>0) {
             angle = 180+angle;
         }
-        else if (fy<0) angle = -180+angle;
+        else if (fy<0 && fx<0) angle = -180+angle;
         return angle;
     }
 }

@@ -6,4 +6,5 @@ public interface DBFilter {
     public void setDB(DBValues DB);
 
     public void calculate();
+    public void showGraph(int series);
 }

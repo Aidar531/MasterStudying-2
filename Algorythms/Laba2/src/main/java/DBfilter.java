@@ -36,6 +36,7 @@ public class DBfilter implements DBFilter {
         this.DB = DB;
     }
 
+    //Вычисление дифференциального и тормозного тока
     public void calculate() {
         brakSumA=0;
         brakSumB=0;
@@ -49,12 +50,9 @@ public class DBfilter implements DBFilter {
         Yb=0;
         Xc=0;
         Yc=0;
-//        System.out.println("-----------------");
-//        System.out.println("Time: " + rms[0].getTime());
+
         for (RMSValues i:rms) {
-//            System.out.println("Шина: " + i.getID());
-//            System.out.println("Value of A: " + i.getPhA());
-//            System.out.println("Phase of A: " + i.getAngleA());
+
             Xa+=getX(i,"A");
             Ya+=getY(i,"A");
             Xb+=getX(i,"B");
@@ -70,36 +68,46 @@ public class DBfilter implements DBFilter {
         diffSumB = Math.sqrt(Math.pow(Xb,2)+Math.pow(Yb,2));
         diffSumC = Math.sqrt(Math.pow(Xc,2)+Math.pow(Yc,2));
 
-
         DB.setDiffValueA(diffSumA/basis);
         DB.setDiffValueB(diffSumB/basis);
         DB.setDiffValueC(diffSumC/basis);
 
-        DB.setBrakingValueA(brakSumA);
-        DB.setBrakingValueB(brakSumB);
-        DB.setBrakingValueC(brakSumC);
+        DB.setBrakingValueA(0.5*brakSumA);
+        DB.setBrakingValueB(0.5*brakSumB);
+        DB.setBrakingValueC(0.5*brakSumC);
 
-//        System.out.println(DB.getDiffValueA());
-//        System.out.println(DB.getBrakingValueA());
     }
-    private double getY(RMSValues rms, String phase) {
+
+    public void showGraph(int series) {
+        Charts.addAnalogData(0,series, DB.getDiffValueA());
+        Charts.addAnalogData(1,series, DB.getDiffValueB());
+        Charts.addAnalogData(2,series, DB.getDiffValueC());
+        Charts.addAnalogData(0,series+1, DB.getBrakingValueA());
+        Charts.addAnalogData(1,series+1, DB.getBrakingValueB());
+        Charts.addAnalogData(2,series+1, DB.getBrakingValueC());
+    }
+    //Получение координаты x вектора
+    private double getX(RMSValues rms, String phase) {
         double x=0;
-        if ("A".equals(phase)) {
+        if (phase.equals("A")) {
             x = rms.getPhA() * Math.cos(Math.toRadians(rms.getAngleA()));
-        } else if ("B".equals(phase)) {
+
+        } else if (phase.equals("B")) {
             x = rms.getPhB() * Math.cos(Math.toRadians(rms.getAngleB()));
-        } else if ("C".equals(phase)) {
+        } else if (phase.equals("C")) {
             x = rms.getPhC() * Math.cos(Math.toRadians(rms.getAngleC()));
         }
         return x;
     }
-    private double getX(RMSValues rms, String phase) {
+    //Получение координаты y вектора
+    private double getY(RMSValues rms, String phase) {
         double y = 0;
-        if ("A".equals(phase)) {
+        if (phase.equals("A")) {
             y = rms.getPhA() * Math.sin(Math.toRadians(rms.getAngleA()));
-        } else if ("B".equals(phase)) {
+        } else if (phase.equals("B")) {
             y = rms.getPhB() * Math.sin(Math.toRadians(rms.getAngleB()));
-        } else if ("C".equals(phase)) {
+
+        } else if (phase.equals("C")) {
             y = rms.getPhC() * Math.sin(Math.toRadians(rms.getAngleC()));
         }
         return y;

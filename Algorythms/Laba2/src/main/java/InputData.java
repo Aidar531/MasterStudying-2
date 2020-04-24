@@ -17,23 +17,18 @@ public class InputData {
     private FilterFur[] FILTER_5;
     private DBValues DB = new DBValues();
 
-
-//    private String comtrName = "/KzAB";//ABC в конце линии
-    private String comtrName = "/KzB";//ABC в конце линии
-//    private String comtrName = "/Vkl";//ABC в конце линии
+//    private String comtrName = "/KzAB";//AB
+//    private String comtrName = "/KzB";//B
+    private String comtrName = "/Vkl";//Включение одного присоединения
     private String path = "/home/aidar/Рабочий стол/MasterStudying#2/Algorythms/Data/DPB/5 sections";
-
 
     private String cfgName = path + comtrName + ".cfg";
     private String datName = path + comtrName + ".dat";
-
-
 
     public InputData() {
         comtrCgf = new File(cfgName);
         comtrDat = new File(datName);
     }
-
 
     private DBFilter dbFilter = new DBfilter();
     private Logic logic = new Logic();
@@ -57,7 +52,6 @@ public class InputData {
                     RMSs_5 = new RMSValues[numberData/3];
                     FILTER_1 = new FilterFur[numberData/3];
                     FILTER_5 = new FilterFur[numberData/3];
-//                    System.out.println("Количество аналоговых сигналов: " + numberData);
                 }
 //              Заполнение массивов коэфициентов
                 if (lineNumber > 2 && lineNumber < numberData + 3) {
@@ -82,9 +76,7 @@ public class InputData {
                         cntID++;
                     }
                 }
-
             }
-
             dbFilter.setRms(RMSs_1);
             dbFilter.setDB(DB);
             logic.setBlockingRMS(RMSs_5);
@@ -93,7 +85,6 @@ public class InputData {
             //Начало считывания файла с данными
             br = new BufferedReader(new FileReader(comtrDat));
             double time = 0;
-            count=0;
             SampleValue currentSV ;
             RMSValues currentRMS_1 ;
             RMSValues currentRMS_5 ;
@@ -102,6 +93,7 @@ public class InputData {
             while ((line = br.readLine()) != null) {
                 lineData = line.split(",");
                 count = 0;
+                //Считывание .dat файла
                 for (String i:lineData) {
                     if (count % 3 == 0 && count != 0 && count < 18) {
                         currentSV = SVs[count / 3 - 1];
@@ -111,7 +103,7 @@ public class InputData {
                         currentFILTER_5 = FILTER_5[count / 3 - 1];
                         currentSV.setPhA(Double.parseDouble(lineData[count - 1]) * k1[count - 3] + k2[count -3]);
                         currentSV.setPhB(Double.parseDouble(lineData[count]) * k1[count- 2] + k2[count -2]);
-                        currentSV.setPhC(Double.parseDouble(lineData[count + 1]) * k1[count -1] + k2[count -1]);
+                        currentSV.setPhC(Double.parseDouble(lineData[count + 1]) * k1[count -1] + k2[count - 1]);
                         time=currentSV.getTime();
                         currentSV.setTime(time += 0.001);
                         currentRMS_1.setTime(time);
@@ -126,23 +118,21 @@ public class InputData {
                     }
                     count++;
                 }
-                dbFilter.setRms(RMSs_1);
                 dbFilter.calculate();
                 // Вывод графиков
-                Charts.addAnalogData(0, 0, SVs[3].getPhA());
-                Charts.addAnalogData(1, 0, SVs[3].getPhB());
-                Charts.addAnalogData(2, 0, SVs[3].getPhC());
-                FILTER_1[0].showGraph(2);
-                FILTER_5[0].showGraph(1);
+                int bus = 0;
+                Charts.addAnalogData(0, 0, SVs[bus].getPhA());
+                Charts.addAnalogData(1, 0, SVs[bus].getPhB());
+                Charts.addAnalogData(2, 0, SVs[bus].getPhC());
+                FILTER_1[bus].showGraph(2);
+                FILTER_5[bus].showGraph(1);
+                dbFilter.showGraph(3);
                 logic.process();
             }
-
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 }
 

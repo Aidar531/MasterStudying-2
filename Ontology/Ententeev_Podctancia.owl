@@ -6,7 +6,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="http://www.semanticweb.org/aidar/ontologies/2019/3/untitled-ontology-7">
-    <Prefix name="" IRI="http://www.semanticweb.org/aidar/ontologies/2019/3/untitled-ontology-7#"/>
+    <Prefix name="" IRI="http://www.semanticweb.org/aidar/ontologies/2019/3/untitled-ontology-7"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
@@ -91,7 +91,10 @@
         <NamedIndividual IRI="#SHE51-EKRA"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#SHE71-EKRA"/>
+        <NamedIndividual IRI="#SHE71-EKRA_AT1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SHE71-EKRA_AT2"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#TA-W1E"/>
@@ -170,18 +173,6 @@
         </ObjectOneOf>
     </EquivalentClasses>
     <EquivalentClasses>
-        <Class IRI="#DZL"/>
-        <ObjectOneOf>
-            <NamedIndividual IRI="#SHE51-EKRA"/>
-        </ObjectOneOf>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="#DZT"/>
-        <ObjectOneOf>
-            <NamedIndividual IRI="#SHE71-EKRA"/>
-        </ObjectOneOf>
-    </EquivalentClasses>
-    <EquivalentClasses>
         <Class IRI="#Line"/>
         <ObjectOneOf>
             <NamedIndividual IRI="#W1E"/>
@@ -190,12 +181,6 @@
             <NamedIndividual IRI="#W2E"/>
             <NamedIndividual IRI="#W2F"/>
             <NamedIndividual IRI="#W2J"/>
-        </ObjectOneOf>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="#TNZNP"/>
-        <ObjectOneOf>
-            <NamedIndividual IRI="#SHE15-EKRA"/>
         </ObjectOneOf>
     </EquivalentClasses>
     <EquivalentClasses>
@@ -270,7 +255,11 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#DZT"/>
-        <NamedIndividual IRI="#SHE71-EKRA"/>
+        <NamedIndividual IRI="#SHE71-EKRA_AT1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DZT"/>
+        <NamedIndividual IRI="#SHE71-EKRA_AT2"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#CurrentTransformer"/>
@@ -345,16 +334,6 @@
         <NamedIndividual IRI="#2J"/>
     </ClassAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isProtectedBy"/>
-        <NamedIndividual IRI="#AT1"/>
-        <NamedIndividual IRI="#SHE71-EKRA"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isProtectedBy"/>
-        <NamedIndividual IRI="#AT2"/>
-        <NamedIndividual IRI="#SHE71-EKRA"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#protect"/>
         <NamedIndividual IRI="#SHE15-EKRA"/>
         <NamedIndividual IRI="#W1E"/>
@@ -416,12 +395,12 @@
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#protect"/>
-        <NamedIndividual IRI="#SHE71-EKRA"/>
+        <NamedIndividual IRI="#SHE71-EKRA_AT1"/>
         <NamedIndividual IRI="#AT1"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#protect"/>
-        <NamedIndividual IRI="#SHE71-EKRA"/>
+        <NamedIndividual IRI="#SHE71-EKRA_AT2"/>
         <NamedIndividual IRI="#AT2"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -606,7 +585,12 @@
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#Function"/>
-        <NamedIndividual IRI="#SHE71-EKRA"/>
+        <NamedIndividual IRI="#SHE71-EKRA_AT1"/>
+        <Literal>Main</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Function"/>
+        <NamedIndividual IRI="#SHE71-EKRA_AT2"/>
         <Literal>Main</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
@@ -720,81 +704,11 @@
         <ObjectProperty IRI="#isMEasuredBy"/>
     </FunctionalObjectProperty>
     <FunctionalObjectProperty>
-        <ObjectProperty IRI="#isProtectedBy"/>
-    </FunctionalObjectProperty>
-    <FunctionalObjectProperty>
         <ObjectProperty IRI="#join"/>
     </FunctionalObjectProperty>
     <FunctionalObjectProperty>
         <ObjectProperty IRI="#measure"/>
     </FunctionalObjectProperty>
-    <FunctionalObjectProperty>
-        <ObjectProperty IRI="#protect"/>
-    </FunctionalObjectProperty>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isConnectedTo"/>
-        <Class IRI="#Line"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isMEasuredBy"/>
-        <Class IRI="#Line"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isProtectedBy"/>
-        <Class IRI="#Bus"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isProtectedBy"/>
-        <Class IRI="#Line"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isProtectedBy"/>
-        <Class IRI="#Transformer"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#join"/>
-        <Class IRI="#Bus"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#measure"/>
-        <Class IRI="#CurrentTransformer"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#protect"/>
-        <Class IRI="#Protection"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#isConnectedTo"/>
-        <Class IRI="#Bus"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#isMEasuredBy"/>
-        <Class IRI="#CurrentTransformer"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#isProtectedBy"/>
-        <Class IRI="#Protection"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#join"/>
-        <Class IRI="#Line"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#measure"/>
-        <Class IRI="#Line"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#protect"/>
-        <Class IRI="#Bus"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#protect"/>
-        <Class IRI="#Line"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#protect"/>
-        <Class IRI="#Transformer"/>
-    </ObjectPropertyRange>
 </Ontology>
 
 
