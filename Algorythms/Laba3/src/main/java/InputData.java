@@ -10,7 +10,7 @@ public class InputData {
     private double[] k2;
 
     public InputData() {
-        String comtrName = "/KZ2";
+        String comtrName = "/KZ7";
         String path = "/home/aidar/Рабочий стол/MasterStudying#2/Algorythms/Data/Laba3";
 
         String cfgName = path + comtrName + ".cfg";
@@ -20,20 +20,19 @@ public class InputData {
         comtrDat = new File(datName);
     }
 
-
     public void start() {
-        SampleValue currentSV = new SampleValue();
-        SampleValue voltageSV = new SampleValue();
-        RMSValues RMS_I = new RMSValues();
-        RMSValues RMS_U = new RMSValues();
-        FilterFur FILTER_I = new FurrieFilter(50, 80);
-        FilterFur FILTER_U = new FurrieFilter(50, 80);
-        ImpedanceData IMPData = new ImpedanceData();
-        ImpedanceCalc impedance = new ImpedanceCalc(RMS_I, RMS_U, IMPData, 3.126, 2.5);
-        BlockingElement blk = new BlockingElement(RMS_I, RMS_U, 2000);
-        Logic logic = new Logic(IMPData, blk);
-        Godograph godograph = new Godograph(IMPData);
-        godograph.drawSetting();
+        SampleValue currentSV = new SampleValue(); // объект для хранения мгновенных значений тока
+        SampleValue voltageSV = new SampleValue(); // объект для хранения мгновенных значений напряжения
+        RMSValues RMS_I = new RMSValues(); // объект для хранения действующих значений тока
+        RMSValues RMS_U = new RMSValues(); // объект для хранения действующих значений тока
+        FilterFur FILTER_I = new FurrieFilter(50, 80); // объект фильтра фурье тока
+        FilterFur FILTER_U = new FurrieFilter(50, 80); // объект фильтра фурье напряжения
+        ImpedanceData IMPData = new ImpedanceData(); // объект для хранения данных по сопротивлению
+        ImpedanceCalc impedance = new ImpedanceCalc(RMS_I, RMS_U, IMPData, 3.126, 2.5); // объект для вычисления сопротивления
+        BlockingElement blk = new BlockingElement(RMS_I, RMS_U, 2000); // орган блокировки
+        Logic logic = new Logic(IMPData, blk); // Объект работы логики
+        Godograph godograph = new Godograph(IMPData); //объект для построения годографа
+        godograph.drawSetting(); // построение харакхеристик срабатывания двух ступеней
 
         try {
             BufferedReader br = new BufferedReader(new FileReader(comtrCgf));
@@ -65,8 +64,6 @@ public class InputData {
             while ((line = br.readLine()) != null) {
                 String[] lineData = line.split(",");
                 //Считывание .dat файла
-//                    System.out.println(count);
-//                    System.out.println(i);
                 voltageSV.setPhA(Double.parseDouble(lineData[2]) * k1[0] + k2[0]);
                 voltageSV.setPhB(Double.parseDouble(lineData[3]) * k1[1] + k2[1]);
                 voltageSV.setPhC(Double.parseDouble(lineData[4]) * k1[2] + k2[2]);
@@ -85,22 +82,28 @@ public class InputData {
                 FILTER_U.setRms(RMS_U);
                 FILTER_U.calculate();
 
-                impedance.calculate();
-                godograph.showGodograph();
+                impedance.calculate(); // Вычисление сопротивления
+                godograph.showGodograph(); // построение точек на годографе
 
 //                    System.out.println("Z_A_X = " + IMPData.getZ_phA_x());
 //                    System.out.println("Z_A_Y = " + IMPData.getZ_phA_y());
 //
-                    Charts.addAnalogData(0, 1, IMPData.getZ("A"));
-                    Charts.addAnalogData(1, 1, IMPData.getZ("B"));
-                    Charts.addAnalogData(2, 1, IMPData.getZ("C"));
-
+                if (count >80 ) {
+                    Charts.addAnalogData(0, 1, IMPData.getZ("A")); //
+                    Charts.addAnalogData(1, 1, IMPData.getZ("B")); // Вывод на график модуля сопротивления
+                    Charts.addAnalogData(2, 1, IMPData.getZ("C")); //
+                }
+                else {
+                    Charts.addAnalogData(0, 1, 600);
+                    Charts.addAnalogData(1, 1, 600);
+                    Charts.addAnalogData(2, 1, 600);
+                }
 
                 // Вывод графиков
 
-                Charts.addAnalogData(0, 0, currentSV.getPhA()*100);
-                Charts.addAnalogData(1, 0, currentSV.getPhB()*100);
-                Charts.addAnalogData(2, 0, currentSV.getPhC()*100);
+                Charts.addAnalogData(0, 0, currentSV.getPhA()*100); //
+                Charts.addAnalogData(1, 0, currentSV.getPhB()*100); // Вывод на график мгновенных значений тока не в масштабе
+                Charts.addAnalogData(2, 0, currentSV.getPhC()*100); //
 //                FILTER_I.showGraph(1);
 
                 logic.process();

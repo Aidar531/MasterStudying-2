@@ -25,7 +25,6 @@ public class ImpedanceCalc {
         imp.setZ_phC_x(getZ_X(rms_i.getPhA_x(), rms_i.getPhA_y(), rms_u.getPhA_x(), rms_u.getPhA_y()));
         imp.setZ_phC_y(getZ_Y(rms_i.getPhA_x(), rms_i.getPhA_y(), rms_u.getPhA_x(), rms_u.getPhA_y()));
 
-
     }
 
     public double getZ_X(double i_ph_x, double i_ph_y, double u_ph_x, double u_ph_y) {

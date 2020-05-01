@@ -4,7 +4,7 @@ public class BlockingElement {
     public RMSValues rms_i;
     public RMSValues rms_u;
     public double dt=0.00025;
-    public double blockingSetting;
+    public double blockingSetting; // уставка срабатывания по производной
 
     public boolean isBlkState() {
         return blkState;
@@ -27,6 +27,8 @@ public class BlockingElement {
 
     public boolean getBlkState() {
 
+        // расчет производной по току
+
         der_I[0]=Math.abs(rms_i.getPh("A")-lastValue_I[0])/dt;
         der_I[1]=Math.abs(rms_i.getPh("B")-lastValue_I[1])/dt;
         der_I[2]=Math.abs(rms_i.getPh("C")-lastValue_I[2])/dt;
@@ -38,21 +40,10 @@ public class BlockingElement {
 //        lastValue_U[0] = rms_u.getPh("A"); lastValue_U[1] = rms_u.getPh("B"); lastValue_U[2] = rms_u.getPh("C");
         lastValue_I[0] = rms_i.getPh("A"); lastValue_I[1] = rms_i.getPh("B"); lastValue_I[2] = rms_i.getPh("C");
 
-//        for (double i:der_I) {
-//            if (i>blockingSetting) blkState = true;
-//            else blkState =false;
-//        }
-//        for (double i:der_U) {
-//            if (i>dU) dU=i;
-//        }
+        //Проверка условий срабатывания
         blkState = (der_I[0] > blockingSetting)
                 | (der_I[1] > blockingSetting) |
                 (der_I[2] > blockingSetting);
-
-//        if ((dI>blockingSetting)) {
-//            blkState = true;
-//        }
-
         return blkState;
     }
 }

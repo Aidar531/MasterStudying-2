@@ -1,15 +1,15 @@
 public class OperationChar {
     private boolean flag=false;
-    private double tanPhi1;
-    private double tanPhi2;
-    private double tanPhi3;
-    private double tanPhi4;
-    private double X0;
-    private double X1;
-    private double X2;
-    private double X3;
-    private double Xust;
-    private double Rust;
+    private double tanPhi1; //
+    private double tanPhi2; //
+    private double tanPhi3; //
+    private double tanPhi4; //
+    private double X0;      // Значения точек и параметров характеристики срабатывания
+    private double X1;      //
+    private double X2;      //
+    private double X3;      //
+    private double Xust;    //
+    private double Rust;    //
     public OperationChar(double phi1, double phi2, double xust, double rust) {
         Xust = xust;
         Rust = rust;
@@ -26,6 +26,9 @@ public class OperationChar {
     }
     //проверка на срабатывание по тормозной характеристике
     public boolean calculate(double Z_X, double Z_Y) {
+
+        // Проверка попадания в область срабтывания
+
         if (Z_X > X3 && Z_X < X2) {
             if ((Z_Y < tanPhi2 * (Z_X + Rust)) && (Z_Y > -tanPhi4 * Z_X)) {
                 flag = true;

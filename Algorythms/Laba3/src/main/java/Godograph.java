@@ -3,10 +3,10 @@ import org.jfree.data.json.JSONUtils;
 public class Godograph {
     public ImpedanceData IMPData;
     private int count =0;
-    public Double[] settingX1 = new Double[402];
-    public Double[] settingY1= new Double[402];
-    public Double[] settingX2 = new Double[1099];
-    public Double[] settingY2= new Double[1099];
+    public Double[] settingX1 = new Double[473];
+    public Double[] settingY1= new Double[473];
+    public Double[] settingX2 = new Double[1381];
+    public Double[] settingY2= new Double[1381];
 
     public double tanPhi1, tanPhi2, tanPhi3, tanPhi4, Xust, Rust;
     public double X0, X1, X2, X3;
@@ -24,10 +24,9 @@ public class Godograph {
         ChartsXY.addSeries("Фаза А", 0, 2);
         ChartsXY.addSeries("Фаза B", 0, 3);
         ChartsXY.addSeries("Фаза С", 0, 4);
-        System.out.println("setting1");
-        createCharacteristic(settingX1,settingY1,10,81.67,76.11,5);
-        System.out.println("setting2");
-        createCharacteristic(settingX2,settingY2,10,81.67,134.09,20);
+
+        createCharacteristic(settingX1,settingY1,10,81.67,76.11,7);
+        createCharacteristic(settingX2,settingY2,10,81.67,134.09,28);
 
         for (int i=0;i<settingX1.length;i++) ChartsXY.addAnalogData(0, 0, settingX1[i], settingY1[i]);
 
@@ -54,9 +53,9 @@ public class Godograph {
         X2 = (Xust) / (tanPhi2) - Rust;
         X3 = - (Rust *tanPhi2) / (tanPhi2 + tanPhi4);
 
-        System.out.println("X0= "+ X0);
-        System.out.println("X1= "+ X1);
-        System.out.println("X2= "+ X2);
+//        System.out.println("X0= "+ X0);
+//        System.out.println("X1= "+ X1);
+//        System.out.println("X2= "+ X2);
 
         int count = 0;
         for (double i = 0; i <= X0; i += 0.1) {
@@ -85,7 +84,6 @@ public class Godograph {
             settingY[count] = -tanPhi4 * i;
             count++;
         }
-        System.out.println(count);
-
+//        System.out.println(count);
     }
 }
