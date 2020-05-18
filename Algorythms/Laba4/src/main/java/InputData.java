@@ -11,7 +11,7 @@ public class InputData {
 
     public InputData() {
         String comtrName = "/KZ7";
-        String path = "/home/aidar/Рабочий стол/MasterStudying#2/Algorythms/Data/Laba3";
+        String path = "/home/aidar/Desktop/MasterStudying#2/Algorythms/Data/Laba4";
 
         String cfgName = path + comtrName + ".cfg";
         comtrCgf = new File(cfgName);
@@ -21,18 +21,20 @@ public class InputData {
     }
 
     public void start() {
+
         SampleValue currentSV = new SampleValue(); // объект для хранения мгновенных значений тока
         SampleValue voltageSV = new SampleValue(); // объект для хранения мгновенных значений напряжения
+        SeqValues currentSeq = new SeqValues(); // объект для хранения последовательностей тока
+        SeqValues voltageSeq = new SeqValues(); // объект для хранения последовательностей напряжения
         RMSValues RMS_I = new RMSValues(); // объект для хранения действующих значений тока
         RMSValues RMS_U = new RMSValues(); // объект для хранения действующих значений тока
         FilterFur FILTER_I = new FurrieFilter(50, 80); // объект фильтра фурье тока
         FilterFur FILTER_U = new FurrieFilter(50, 80); // объект фильтра фурье напряжения
-        ImpedanceData IMPData = new ImpedanceData(); // объект для хранения данных по сопротивлению
-        ImpedanceCalc impedance = new ImpedanceCalc(RMS_I, RMS_U, IMPData, 3.126, 2.5); // объект для вычисления сопротивления
-        BlockingElement blk = new BlockingElement(RMS_I, RMS_U, 2000); // орган блокировки
-        Logic logic = new Logic(IMPData, blk); // Объект работы логики
-        Godograph godograph = new Godograph(IMPData); //объект для построения годографа
-        godograph.drawSetting(); // построение харакхеристик срабатывания двух ступеней
+        RNM RNM = new RNM(currentSeq,voltageSeq);
+        SequencesFilter SEQ_I = new SequencesFilter(RMS_I,currentSeq);
+        SequencesFilter SEQ_U = new SequencesFilter(RMS_U,voltageSeq);
+        Logic logic = new Logic(RNM,currentSeq);
+
 
         try {
             BufferedReader br = new BufferedReader(new FileReader(comtrCgf));
@@ -81,32 +83,22 @@ public class InputData {
                 FILTER_U.setSv(voltageSV);
                 FILTER_U.setRms(RMS_U);
                 FILTER_U.calculate();
-
-                impedance.calculate(); // Вычисление сопротивления
-                godograph.showGodograph(); // построение точек на годографе
-
-//                    System.out.println("Z_A_X = " + IMPData.getZ_phA_x());
-//                    System.out.println("Z_A_Y = " + IMPData.getZ_phA_y());
-//
-                if (count >80 ) {
-                    Charts.addAnalogData(0, 1, IMPData.getZ("A")); //
-                    Charts.addAnalogData(1, 1, IMPData.getZ("B")); // Вывод на график модуля сопротивления
-                    Charts.addAnalogData(2, 1, IMPData.getZ("C")); //
-                }
-                else {
-                    Charts.addAnalogData(0, 1, 600);
-                    Charts.addAnalogData(1, 1, 600);
-                    Charts.addAnalogData(2, 1, 600);
-                }
-
+                SEQ_I.calcSeq0();
+                SEQ_U.calcSeq0();
+//                System.out.println(RNM.isForward());
                 // Вывод графиков
 
-                Charts.addAnalogData(0, 0, currentSV.getPhA()*100); //
-                Charts.addAnalogData(1, 0, currentSV.getPhB()*100); // Вывод на график мгновенных значений тока не в масштабе
-                Charts.addAnalogData(2, 0, currentSV.getPhC()*100); //
-//                FILTER_I.showGraph(1);
+                Charts.addAnalogData(0, 0, currentSV.getPhA()); //
+                Charts.addAnalogData(1, 0, currentSV.getPhB()); // Вывод на график мгновенных значений тока не в масштабе
+                Charts.addAnalogData(2, 0, currentSV.getPhC()); //
+//                Charts.addAnalogData(0, 1, RMS_I.getPh("A")); //
+//                Charts.addAnalogData(1, 1,  RMS_I.getPh("B")); //
+//                Charts.addAnalogData(2, 1,  RMS_I.getPh("C")); //
+                Charts.addAnalogData(3, 0, currentSeq.getSeq0());
+                FILTER_I.showGraph(1);
 
-//                logic.process();
+                RNM.calculateDirection();
+                logic.process();
                 count++;
             }
 
